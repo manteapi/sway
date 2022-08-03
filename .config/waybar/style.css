@@ -1,12 +1,12 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(43, 48, 59, 0.4);
+    /* border-bottom: 3px solid rgba(43, 48, 59, 0.5); */
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -35,8 +35,8 @@ window#waybar.chromium {
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
+    padding: 0 2px;
+    background-color: #2f343f;
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
@@ -52,16 +52,16 @@ window#waybar.chromium {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
+    background-color: #bf616a;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #ebcb8b;
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: #bf616a;
     border-bottom: 3px solid #ffffff;
 }
 
@@ -79,7 +79,7 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #mpd {
-    padding: 0 10px;
+    padding: 0 5px;
     color: #ffffff;
 }
 
@@ -103,7 +103,7 @@ window#waybar.chromium {
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: #a3be8c;
     color: #000000;
 }
 
@@ -120,7 +120,7 @@ window#waybar.chromium {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: #a3be8c;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -139,7 +139,7 @@ label:focus {
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #b19cd9;
 }
 
 #disk {
@@ -151,7 +151,7 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #b48ead;
 }
 
 #network.disconnected {
@@ -183,7 +183,7 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: #bf616a;
 }
 
 #temperature.critical {
@@ -233,7 +233,7 @@ label:focus {
     background: #00b093;
     color: #740864;
     padding: 0 5px;
-    margin: 0 5px;
+    margin: 0 0px;
     min-width: 16px;
 }
 

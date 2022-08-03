@@ -28,11 +28,14 @@ font pango:monospace Mono 8
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# autolock after 5 minutes
-# exec xautolock -time 1 -locker i3lock --show-failed-attempts -i ~/.config/i3/lockscreen/westworld-wallpaper.png && dunstctl set-paused true
+# autolock
+exec swayidle -w \
+	timeout 60 'swaylock -f --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png' \
+	timeout 120 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 
 # shortcut to lock the screen
-# bindsym Control+mod1+l exec i3lock --show-failed-attempts -i ~/.config/i3/lockscreen/westworld-wallpaper.png && dunstctl set-paused true
+bindsym Control+mod1+l exec swaylock --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -163,44 +166,28 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar swaybar_command waybar
-# bar {
-#         colors {
-#         background #2f343f
-#         statusline #2f343f
-#         separator #4b5262
-#
-#         # colour of border, background, and text
-#         focused_workspace       #2f343f #bf616a #d8dee8
-#         active_workspace        #2f343f #2f343f #d8dee8
-#         inactive_workspace      #2f343f #2f343f #d8dee8
-#         urgent_workspace       #2f343f #ebcb8b #2f343f
-#         }
-#         font pango:monospace Monospace 9
-#         position top
-#         # status_command i3status
-#         tray_output none
-# }
+
+default_border none
+default_floating_border none
+hide_edge_borders smart
 
 # windows assignments
 
 # assign window to workspace based on their class
-# assign [class="gnome-terminal"] $WS1
-# assign [class="firefox"] $WS2
-# assign [class="Mattermost"] $WS3
+assign [class="gnome-terminal"] $WS1
+assign [class="firefox"] $WS2
+assign [class="Mattermost"] $WS3
 # assign[class="GitKraken"] $WS4
 # assign[class="scrcpy"] $WS5
 # assign[class="discord"] $WS5
 
-# for_window [class="bluff"] floating enable
-# for_window [class="SofaQt_qmltest"] floating enable
-# for_window [class="qmltest"] floating enable
-# for_window [class="CircleApp"] floating enable
-# for_window [class="AnatoRun"] floating enable
-# for_window [class="runSofa2"] floating enable
-
+for_window [class="bluff"] floating enable
+for_window [class="SofaQt_qmltest"] floating enable
+for_window [class="qmltest"] floating enable
+for_window [class="CircleApp"] floating enable
+for_window [class="lucy"] floating enable
+for_window [class="AnatoRun"] floating enable
+for_window [class="runSofa2"] floating enable
 
 # autostart
 
@@ -220,4 +207,9 @@ exec --no-startup-id firefox
 # exec --no-startup-id discord
 exec --no-startup-id mattermost-desktop --ozone-platform=wayland
 exec --no-startup-id udiskie
+
+# setup wallpaper
 output "*" bg ~/.config/sway/wallpapers/ShibuyaRiver.jpg fill
+
+# start waybar status line
+bar swaybar_command waybar
