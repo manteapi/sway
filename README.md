@@ -1,2 +1,2 @@
-# sway
-Yet another sway config
+# i3
+i3 configuration
