@@ -30,8 +30,8 @@ floating_modifier $mod
 
 # autolock
 exec swayidle -w \
-	timeout 60 'swaylock -f --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png' \
-	timeout 120 'swaymsg "output * dpms off"' \
+	timeout 300 'swaylock -f --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png' \
+	timeout 360 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
 # shortcut to lock the screen
