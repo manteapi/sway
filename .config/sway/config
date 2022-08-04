@@ -28,6 +28,11 @@ font pango:monospace Mono 8
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/.config/sway/scripts/clamshell_mode_reload.sh
+
 # autolock
 exec swayidle -w \
 	timeout 300 'swaylock -f --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png' \
@@ -168,7 +173,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-default_border none
+default_border pixel 1
 default_floating_border none
 hide_edge_borders smart
 gaps inner 10
