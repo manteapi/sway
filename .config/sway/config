@@ -50,6 +50,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty --command tmux new-session -A -s dev
 
 # kill focused window
 bindsym $mod+Shift+q kill
