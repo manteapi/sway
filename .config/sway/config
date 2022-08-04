@@ -171,6 +171,7 @@ bindsym $mod+r mode "resize"
 default_border none
 default_floating_border none
 hide_edge_borders smart
+gaps inner 10
 
 # windows assignments
 
