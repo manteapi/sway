@@ -180,10 +180,10 @@ gaps inner 10
 
 # windows assignments
 
-# assign window to workspace based on their app_id
-# NOTE: Use `swaymsg -t get_tree` to get windows information such as app_id
-assign [app_id="firefox"] $WS2
-assign [app_id="Electron"] $WS3
+# assign window to workspace based on their app_id, class, ...
+# NOTE: Use `swaymsg -t get_tree` to get windows information such as app_id, class and so on
+assign [class="firefox"] $WS2
+assign [class="Mattermost"] $WS3
 # assign[app_id="GitKraken"] $WS4
 # assign[app_id="scrcpy"] $WS5
 # assign[app_id="discord"] $WS5
@@ -203,7 +203,7 @@ for_window [app_id="runSofa2"] floating enable
 exec firefox
 # exec --no-startup-id scrcpy
 # exec --no-startup-id discord
-exec mattermost-desktop --ozone-platform=wayland
+exec mattermost-desktop
 exec udiskie
 
 # setup wallpaper
