@@ -180,43 +180,34 @@ gaps inner 10
 
 # windows assignments
 
-# assign window to workspace based on their class
-assign [class="gnome-terminal"] $WS1
-assign [class="firefox"] $WS2
-assign [class="Mattermost"] $WS3
-# assign[class="GitKraken"] $WS4
-# assign[class="scrcpy"] $WS5
-# assign[class="discord"] $WS5
+# assign window to workspace based on their app_id
+# NOTE: Use `swaymsg -t get_tree` to get windows information such as app_id
+assign [app_id="firefox"] $WS2
+assign [app_id="Electron"] $WS3
+# assign[app_id="GitKraken"] $WS4
+# assign[app_id="scrcpy"] $WS5
+# assign[app_id="discord"] $WS5
 
-for_window [class="bluff"] floating enable
-for_window [class="SofaQt_qmltest"] floating enable
-for_window [class="qmltest"] floating enable
-for_window [class="CircleApp"] floating enable
-for_window [class="lucy"] floating enable
-for_window [class="AnatoRun"] floating enable
-for_window [class="runSofa2"] floating enable
+for_window [app_id="bluff"] floating enable
+for_window [app_id="SofaQt_qmltest"] floating enable
+for_window [app_id="qmltest"] floating enable
+for_window [app_id="CircleApp"] floating enable
+for_window [app_id="lucy"] floating enable
+for_window [app_id="AnatoRun"] floating enable
+for_window [app_id="runSofa2"] floating enable
 
 # autostart
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-# compositor
-# exec --no-startup-id picom -b
 # flameshot
 # exec --no-startup-id flameshot
 # exec --no-startup-id gnome-terminal
-exec --no-startup-id firefox
+exec firefox
 # exec --no-startup-id scrcpy
 # exec --no-startup-id discord
-exec --no-startup-id mattermost-desktop --ozone-platform=wayland
-exec --no-startup-id udiskie
+exec mattermost-desktop --ozone-platform=wayland
+exec udiskie
 
 # setup wallpaper
-output "*" bg ~/.config/sway/wallpapers/ShibuyaRiver.jpg fill
+exec_always ~/.config/sway/scripts/random_wallpaper.sh
 
 # start waybar status line
 bar swaybar_command waybar
