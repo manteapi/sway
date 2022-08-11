@@ -54,8 +54,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # bindsym $mod+Shift+m exec dunstctl set-paused toggle && status=$(exec dunstctl is-paused) && dunstify "Notifications toggled ? $status"
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty --command tmux new-session -A -s dev
+bindsym $mod+Return exec wezterm
+bindsym $mod+Shift+Return exec wezterm start tmux new-session -A -s dev
 
 # kill focused window
 bindsym $mod+Shift+q kill
