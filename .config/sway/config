@@ -209,5 +209,9 @@ exec udiskie
 # setup wallpaper
 exec_always ~/.config/sway/scripts/random_wallpaper.sh
 
+# setup dunst
+# INFO: Not sure if this command improved anythind ? ```systemctl --user import-environment WAYLAND_DISPLAY```
+exec_always /usr/bin/dunst
+
 # start waybar status line
 bar swaybar_command waybar
