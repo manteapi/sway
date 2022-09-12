@@ -11,8 +11,8 @@ set $WS1 1:Starship
 set $WS2 2:Web
 set $WS3 3:Mattermost
 set $WS4 4:Gitkraken
-set $WS5 5:Chat
-set $WS6 6
+set $WS5 5:Test
+set $WS6 6:Chat
 set $WS7 7
 set $WS8 8
 set $WS9 9
@@ -52,6 +52,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 
 # toggle notifications
 # bindsym $mod+Shift+m exec dunstctl set-paused toggle && status=$(exec dunstctl is-paused) && dunstify "Notifications toggled ? $status"
+
+bindsym $mod+Shift+p exec sh ~/.config/sway/scripts/grimshot.sh copy area
 
 # start a terminal
 bindsym $mod+Return exec wezterm
@@ -184,15 +186,21 @@ gaps inner 10
 # NOTE: Use `swaymsg -t get_tree` to get windows information such as app_id, class and so on
 assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
+assign [app_id="qmltest"] $WS5
+assign [app_id="AnatoRun"] $WS5
+assign [app_id="lucy"] $WS5
+assign [app_id="runSofa2"] $WS5
+assign [app_id="CircleApp"] $WS5
+assign [app_id="SofaQt_qmltest"] $WS5
 # assign[app_id="GitKraken"] $WS4
 # assign[app_id="scrcpy"] $WS5
 # assign[app_id="discord"] $WS5
 
 for_window [app_id="bluff"] floating enable
 for_window [app_id="SofaQt_qmltest"] floating enable
-for_window [app_id="qmltest"] floating enable
 for_window [app_id="CircleApp"] floating enable
 for_window [app_id="lucy"] floating enable
+for_window [app_id="qmltest"] floating enable
 for_window [app_id="AnatoRun"] floating enable
 for_window [app_id="runSofa2"] floating enable
 
