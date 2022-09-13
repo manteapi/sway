@@ -33,6 +33,11 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/scripts/clamshell_mode_reload.sh
 
+# INFO: Allow screen sharing using slurp
+# see https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
+# see also https://github.com/emersion/xdg-desktop-portal-wlr#running
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # autolock
 exec swayidle -w \
 	timeout 600 'swaylock -f --show-failed-attempts -i ~/.config/sway/lockscreen/westworld-wallpaper.png' \
