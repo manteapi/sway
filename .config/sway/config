@@ -196,15 +196,15 @@ gaps inner 10
 # NOTE: Use `swaymsg -t get_tree` to get windows information such as app_id, class and so on
 assign [class="firefox"] $WS2
 assign [class="Mattermost"] $WS3
+assign [class="GitKraken"] $WS4
 assign [app_id="qmltest"] $WS5
 assign [app_id="AnatoRun"] $WS5
 assign [app_id="lucy"] $WS5
 assign [app_id="runSofa2"] $WS5
 assign [app_id="CircleApp"] $WS5
 assign [app_id="SofaQt_qmltest"] $WS5
-# assign[app_id="GitKraken"] $WS4
+assign [class="discord"] $WS6
 # assign[app_id="scrcpy"] $WS5
-# assign[app_id="discord"] $WS5
 
 for_window [app_id="bluff"] floating enable
 for_window [app_id="SofaQt_qmltest"] floating enable
@@ -215,12 +215,11 @@ for_window [app_id="AnatoRun"] floating enable
 for_window [app_id="runSofa2"] floating enable
 
 # autostart
-# flameshot
-# exec --no-startup-id flameshot
-# exec --no-startup-id gnome-terminal
+exec gitkraken
+exec wezterm start tmux new-session -A -s dev
 exec firefox
+exec discord
 # exec --no-startup-id scrcpy
-# exec --no-startup-id discord
 exec mattermost-desktop
 exec udiskie
 
