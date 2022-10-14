@@ -13,7 +13,7 @@ set $WS3 3:Mattermost
 set $WS4 4:Gitkraken
 set $WS5 5:Test
 set $WS6 6:Chat
-set $WS7 7
+set $WS7 7:Notion
 set $WS8 8
 set $WS9 9
 set $WS10 10
@@ -204,6 +204,7 @@ assign [app_id="runSofa2"] $WS5
 assign [app_id="CircleApp"] $WS5
 assign [app_id="SofaQt_qmltest"] $WS5
 assign [class="discord"] $WS6
+assign [class="notion"] $WS7
 # assign[app_id="scrcpy"] $WS5
 
 for_window [app_id="bluff"] floating enable
@@ -219,6 +220,7 @@ exec gitkraken
 exec wezterm start tmux new-session -A -s dev
 exec firefox
 exec discord
+exec notion-app
 # exec --no-startup-id scrcpy
 exec mattermost-desktop
 exec udiskie
