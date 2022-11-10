@@ -63,7 +63,7 @@ bindsym $mod+p exec sh ~/.config/sway/scripts/grimshot.sh copy area
 
 bindsym $mod+Shift+p exec sh ~/.config/sway/scripts/record.sh
 # bindsym $mod+Shift+p exec wf-recorder -g "$$(/usr/bin/slurp)" -f ~/Downloads/recording_$(date +"%Y-%m-%d_%H:%M:%S.gif") -c gif
-bindsym $mod+Shift+s exec killall -s SIGINT wf-recorder
+bindsym $mod+Shift+s exec killall -s SIGINT wf-recorder && dunstify "Stop recording..."
 
 # start a terminal
 bindsym $mod+Return exec wezterm
@@ -220,7 +220,7 @@ exec gitkraken
 exec wezterm start tmux new-session -A -s dev
 exec firefox
 exec discord
-exec notion-app
+# exec notion-app
 # exec --no-startup-id scrcpy
 exec mattermost-desktop
 exec udiskie
