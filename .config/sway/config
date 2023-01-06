@@ -12,8 +12,8 @@ set $WS2 2:Web
 set $WS3 3:Mattermost
 set $WS4 4:Gitkraken
 set $WS5 5:Test
-set $WS6 6:Chat
-set $WS7 7:Notion
+set $WS6 6:Discord
+set $WS7 7:Chat
 set $WS8 8
 set $WS9 9
 set $WS10 10
@@ -28,10 +28,24 @@ font pango:monospace Mono 8
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Setup clamshell mode (ignore laptop when screen is closed)
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/scripts/clamshell_mode_reload.sh
+
+# Assign workspace to ouput
+set $left_screen DP-3
+set $right_screen DP-4
+
+workspace $WS2 output $left_screen
+workspace $WS3 output $left_screen
+workspace $WS4 output $left_screen
+workspace $WS5 output $left_screen
+workspace $WS6 output $left_screen
+workspace $WS7 output $left_screen
+
+workspace $WS1 output $right_screen
 
 # INFO: Allow screen sharing using slurp
 # see also https://github.com/emersion/xdg-desktop-portal-wlr#running
@@ -204,7 +218,8 @@ assign [app_id="runSofa2"] $WS5
 assign [app_id="CircleApp"] $WS5
 assign [app_id="SofaQt_qmltest"] $WS5
 assign [class="discord"] $WS6
-assign [class="notion"] $WS7
+assign [class="Ferdium"] $WS7
+assign [class="Signal"] $WS7
 # assign[app_id="scrcpy"] $WS5
 
 for_window [app_id="bluff"] floating enable
@@ -220,6 +235,9 @@ exec gitkraken
 exec wezterm start tmux new-session -A -s dev
 exec firefox
 exec discord
+exec ferdium
+exec signal-desktop
+
 # exec notion-app
 # exec --no-startup-id scrcpy
 exec mattermost-desktop
