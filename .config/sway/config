@@ -89,6 +89,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 set $menu bemenu-run | xargs swaymsg exec
 bindsym $mod+d exec $menu
+# bindsym $mod+Shift+d exec wofi -d | xargs swaymsg exec
 
 # change focus
 bindsym $mod+h focus left
